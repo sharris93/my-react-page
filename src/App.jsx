@@ -1,33 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+const navbarTitle = 'My Site';
+const heroHeading = 'Your profile';
+const mainParagraphs = [
+  'This is the first paragraph of the main content.',
+  'Here is another bit of content to display on the page.',
+  'You can keep adding more text as needed!'
+]
+const footerText = '© 2025 My Site. All rights reserved.';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="#">
+            {navbarTitle}
+          </a>
+        </div>
+      </nav>
+
+      <section className="hero is-info is-medium">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <h1 className="title">
+              {heroHeading}
+            </h1>
+          </div>
+        </div>
+      </section>
+
+
+      <main className="section">
+        <div className="container has-text-centered">
+          {mainParagraphs.map((paragraph, index) => {
+            return (
+              <div key={index}>
+                <p>{paragraph}</p>
+              </div>
+            )
+          })}
+        </div>
+      </main>
+
+      <footer className="footer">
+        <div className="content has-text-centered">
+          <p>{footerText}</p>
+        </div>
+      </footer>
+
+
     </>
   )
 }
